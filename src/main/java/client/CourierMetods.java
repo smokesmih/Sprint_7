@@ -20,7 +20,7 @@ public class CourierMetods {
 
     }
     @Step("Логин курьера в системе")
-    public static Response login_Courier(Credentials credentials) {
+    public static Response loginCourier(Credentials credentials) {
         return   given()
                 .baseUri(URL_SCOOTER)
                 .body(credentials)
@@ -30,7 +30,7 @@ public class CourierMetods {
     }
     @Step("Удаление курьера")
     public static  void deleteCourier(Courier courier) {
-    int id_courier = login_Courier(Credentials.fromCourier(courier)).then().extract().body().jsonPath().get("id");
+    int id_courier = loginCourier(Credentials.fromCourier(courier)).then().extract().body().jsonPath().get("id");
           given()
                 .baseUri(URL_SCOOTER)
                 .header("Content-Type", "application/json")

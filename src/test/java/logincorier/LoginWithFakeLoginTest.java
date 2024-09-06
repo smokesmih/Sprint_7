@@ -17,7 +17,7 @@ public class LoginWithFakeLoginTest {
     @DisplayName("Проверка логина под несуществующим пользователем")
     public void positiveLoginTest() {
         CourierMetods.createCourier(COURIER);
-        Response response = CourierMetods.login_Courier(Credentials.fromCourierWithNotRealUser(COURIER));
+        Response response = CourierMetods.loginCourier(Credentials.fromCourierWithNotRealUser(COURIER));
 
         int statusCode = response.then().extract().statusCode();
         Assert.assertEquals(404, statusCode);

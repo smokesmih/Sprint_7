@@ -17,7 +17,7 @@ public class LoginWithWrongPasswordTest {
     @DisplayName("Проверка логина, c неверным паролем")
     public void positiveLoginTest() {
         CourierMetods.createCourier(COURIER);
-        Response response = CourierMetods.login_Courier(Credentials.fromCourierWithWrongPassword(COURIER));
+        Response response = CourierMetods.loginCourier(Credentials.fromCourierWithWrongPassword(COURIER));
 
         int statusCode = response.then().extract().statusCode();
         Assert.assertEquals(404, statusCode);

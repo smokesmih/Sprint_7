@@ -18,7 +18,7 @@ public class PositiveLoginTest {
     @DisplayName("Позитивная проверка логина")
     public void positiveLoginTest() {
         CourierMetods.createCourier(COURIER);
-        Response response = CourierMetods.login_Courier(Credentials.fromCourier(COURIER));
+        Response response = CourierMetods.loginCourier(Credentials.fromCourier(COURIER));
         int statusCode = response.then().extract().statusCode();
         Assert.assertEquals(200, statusCode);
         int body = response.then().extract().jsonPath().get("id");

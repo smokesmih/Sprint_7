@@ -17,7 +17,7 @@ public class LoginWithoutLoginTest {
     @DisplayName("Проверка логина, без заполнения обязательного поля Login")
     public void positiveLoginTest() {
         CourierMetods.createCourier(COURIER);
-        Response response = CourierMetods.login_Courier(Credentials.fromCourierWithoutLogin(COURIER));
+        Response response = CourierMetods.loginCourier(Credentials.fromCourierWithoutLogin(COURIER));
         int statusCode = response.then().extract().statusCode();
         Assert.assertEquals(400, statusCode);
         String body = response.then().extract().jsonPath().get("message");
